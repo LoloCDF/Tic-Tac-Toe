@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/"
+                xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+     <service name="GameLogic" provider="java:RPC">
+
+      <parameter name="scope" value="application"/>
+      <parameter name="className" value="tictactoe.GameLogic"/>
+      <parameter name="allowedMethods" value="*"/>
+
+      <beanMapping qname="ns:Player" xmlns:ns="http://www.uc3m.es/WS/GameLogic"
+            languageSpecificType="java:tictactoe.Player"/>
+
+      <beanMapping qname="ns:Game" xmlns:ns="http://www.uc3m.es/WS/GameLogic"
+            languageSpecificType="java:tictactoe.Game"/>
+
+      <arrayMapping qname="ns:ArrayOfGame" xmlns:ns="http://www.uc3m.es/WS/GameLogic"
+                 languageSpecificType="java:tictactoe.Game[]" innerType="ns:Game"
+                 encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+     </service>
+
+    </deployment>
